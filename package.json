@@ -1,0 +1,40 @@
+{
+  "name": "developsblog",
+  "version": "1.0.0",
+  "description": "Blog website with Posts page, detailed post page and creating a post page",
+  "main": "index.js",
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/lab": "^4.0.0-alpha.54",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "material-ui-pagination": "^1.1.6",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-paginate": "^6.3.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.6",
+    "typescript": "^3.9.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zmiyuchkaa/developsBlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zmiyuchkaa/developsBlog/issues"
+  },
+  "homepage": "https://github.com/Zmiyuchkaa/developsBlog#readme"
+}
