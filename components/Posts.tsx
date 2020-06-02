@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
+import {Link, Route, BrowserRouter} from 'react-router-dom';
+import Post from "./Post"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -73,7 +74,13 @@ const Posts = () => {
               <Typography className={classes.text}>{post.title}</Typography>
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
-            <Button size="small">See More</Button>
+            <Button size="small" >
+              See More
+            </Button>
+            <BrowserRouter>
+              <Link path="/post/${post.id}" component={Post}>Details</Link>
+            </BrowserRouter>
+            
           </Card>
         </div>
       )}
