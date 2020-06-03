@@ -23,6 +23,7 @@ const Button = styled.button `
     background-color: white;
   }
 `
+
 const Container = styled.div `
   margin: 24px;
   min-height: calc(96vh - 341px);
