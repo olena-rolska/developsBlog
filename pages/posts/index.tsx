@@ -65,7 +65,9 @@ const Posts = () => {
     <div>
       <Grid item>
           <Tooltip title="" placement="top-start">
-            <Button className={classes.nav} >Create a post</Button>
+            <Button className={classes.nav} >
+              <Link href={`/create/`} as={`/create/`}><p>Create Post</p></Link>
+            </Button>
           </Tooltip>
         </Grid>
       <div className={classes.facts}>{posts.slice(0, 6).map(post =>
@@ -76,7 +78,7 @@ const Posts = () => {
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
             <Button>
-              <Link href={`/posts/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
+              <Link href={`/post/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
             </Button>
           </Card>
         </div>
