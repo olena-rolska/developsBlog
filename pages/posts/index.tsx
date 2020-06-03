@@ -66,11 +66,11 @@ const Posts = () => {
       <Grid item>
           <Tooltip title="" placement="top-start">
             <Button className={classes.nav} >
-              <Link href={`/create/`} as={`/create/`}><p>Create Post</p></Link>
+              <Link href={`/create/`} as={`/posts/new`}><p>Create Post</p></Link>
             </Button>
           </Tooltip>
         </Grid>
-      <div className={classes.facts}>{posts.slice(0, 6).map(post =>
+      <div className={classes.facts}>{posts.slice(0, 50).map(post =>
         <div className='facts-block__card'>
           <Card className={classes.card}>
             <CardContent>
@@ -78,7 +78,7 @@ const Posts = () => {
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
             <Button>
-              <Link href={`/post/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
+              <Link href={`/posts/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
             </Button>
           </Card>
         </div>
