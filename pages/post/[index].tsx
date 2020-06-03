@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-import  {useRouter} from 'next/router'
+import {useRouter} from 'next/router';
+import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -49,16 +49,14 @@ const Post = () => {
     return(
       <div className={classes.div}>
         <Grid item>
-          {/* <Tooltip title="" placement="top-start">
-            <Button className={classes.nav} component={Link} to={'/'}>Main</Button>
-          </Tooltip> */}
+          <Link href="/">Main</Link>
         </Grid>
         <Card className={classes.card}>
         <CardContent>
           <Typography>{post.title}</Typography>
           <Typography>{post.body}</Typography>
         </CardContent>
-        {/* <Button size="small" component={Link} to={'/'}>back to list</Button> */}
+        <Link href="/">Back to list</Link>
       </Card>
     </div>
     ) 
