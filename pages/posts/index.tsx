@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import {Link, Route} from 'react-router-dom';
-import AppRouter from "./Router"
-import Post from "./Post"
+import Link from 'next/link';
+import AppRouter from "../../components/Router"
+import Post from "../post/index"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '30px',
     backgroundColor: '#f0c09e',
     '&:hover': {
-      opacity: '0.8',
+      backgroundColor: '#f55531',
     }
   },
   text: {
@@ -61,13 +61,12 @@ const Posts = () => {
       });
   }, []);
 
-
   return (
     <div>
       <Grid item>
-          {/* <Tooltip title="" placement="top-start">
+          <Tooltip title="" placement="top-start">
             <Button className={classes.nav} >Create a post</Button>
-          </Tooltip> */}
+          </Tooltip>
         </Grid>
       <div className={classes.facts}>{posts.slice(0, 6).map(post =>
         <div className='facts-block__card'>
@@ -76,10 +75,8 @@ const Posts = () => {
               <Typography className={classes.text}>{post.title}</Typography>
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
-            <Button size="small" > Details
-              <AppRouter>
-                <Route path to={`/post/${post.id}`} component={Post}/>
-              </AppRouter>
+            <Button>
+              <Link href={`/posts/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
             </Button>
           </Card>
         </div>

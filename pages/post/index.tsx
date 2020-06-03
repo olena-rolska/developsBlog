@@ -3,10 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -55,8 +52,10 @@ const Post = ({match}) => {
           </Tooltip>
         </Grid>
         <Card className={classes.card}>
-        <CardHeader action={<IconButton aria-label="Settings"></IconButton>} title="Cats Facts Base" subheader="a new cat fact every day"/>
-        <CardContent><Typography>{post.body}</Typography></CardContent>
+        <CardContent>
+          <Typography>{post.title}</Typography>
+          <Typography>{post.body}</Typography>
+        </CardContent>
         <Button size="small" component={Link} to={'/'}>back to list</Button>
       </Card>
       <div>Hello</div>

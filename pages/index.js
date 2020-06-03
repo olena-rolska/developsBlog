@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import Posts from "../components/Posts";
+import Posts from "./posts";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
