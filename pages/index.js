@@ -4,11 +4,11 @@ import Posts from "../components/Posts";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-function Blog() {
+function Blog(props) {
   return (
     <div>
       <Header />
-      <Posts />
+      <Posts match={props}/>
       <Footer />
     </div>
   )

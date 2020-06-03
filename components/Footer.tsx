@@ -8,13 +8,13 @@ const Footer = () => {
     <footer className='footer'>
       <h2>Follow us</h2>
       <Grid item>
-          <Tooltip placement="top-start">
+          <Tooltip title="" placement="top-start">
             <Button>Facebook</Button>
           </Tooltip>
-          <Tooltip placement="top">
+          <Tooltip title="" placement="top">
             <Button>Instagram</Button>
           </Tooltip>
-          <Tooltip placement="top-end">
+          <Tooltip title="" placement="top-end">
             <Button>Twitter</Button>
           </Tooltip>
         </Grid>

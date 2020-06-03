@@ -8,7 +8,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import CatImg from '../images/cat.jpg';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -51,14 +50,14 @@ const Post = ({match}) => {
     return(
       <div className={classes.div}>
         <Grid item>
-          <Tooltip placement="top-start">
+          <Tooltip title="" placement="top-start">
             <Button className={classes.nav} component={Link} to={'/'}>Main</Button>
           </Tooltip>
         </Grid>
         <Card className={classes.card}>
         <CardHeader action={<IconButton aria-label="Settings"></IconButton>} title="Cats Facts Base" subheader="a new cat fact every day"/>
         <CardContent><Typography>{post.body}</Typography></CardContent>
-        <Button size="small" component={Link} to={'/posts/'}>back to list</Button>
+        <Button size="small" component={Link} to={'/'}>back to list</Button>
       </Card>
       <div>Hello</div>
     </div>

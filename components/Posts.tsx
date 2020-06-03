@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import {Link, Route, BrowserRouter} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
+import AppRouter from "./Router"
 import Post from "./Post"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -60,32 +61,26 @@ const Posts = () => {
       });
   }, []);
 
-  function Hello() {
-    console.log(axios.get(`https://simple-blog-api.crew.red/posts/${match.params.id}`))
-  }
-
 
   return (
     <div>
       <Grid item>
-          <Tooltip placement="top-start">
+          {/* <Tooltip title="" placement="top-start">
             <Button className={classes.nav} >Create a post</Button>
-          </Tooltip>
+          </Tooltip> */}
         </Grid>
-      <div className={classes.facts}>{posts.slice(0, 21).map(post =>
+      <div className={classes.facts}>{posts.slice(0, 6).map(post =>
         <div className='facts-block__card'>
           <Card className={classes.card}>
             <CardContent>
               <Typography className={classes.text}>{post.title}</Typography>
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
-            <Button size="small" >
-              See More
+            <Button size="small" > Details
+              <AppRouter>
+                <Route path to={`/post/${post.id}`} component={Post}/>
+              </AppRouter>
             </Button>
-            <BrowserRouter>
-              <Link path="/posts/:id" component={Post}>Details</Link>
-            </BrowserRouter>
-            <Button onClick={Hello}>Push</Button>
           </Card>
         </div>
       )}
