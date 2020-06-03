@@ -42,7 +42,7 @@ const Post = ({match}) => {
 
 
   React.useEffect(() => {
-    axios.get(`https://cors-anywhere.herokuapp.com/cat-fact.herokuapp.com/facts/${match.params.id}`)
+    axios.get(`https://simple-blog-api.crew.red/posts/${match.params.id}`)
     .then(response => {
       setPost(response.data);
     });
@@ -60,6 +60,7 @@ const Post = ({match}) => {
         <CardContent><Typography>{post.body}</Typography></CardContent>
         <Button size="small" component={Link} to={'/posts/'}>back to list</Button>
       </Card>
+      <div>Hello</div>
     </div>
     ) 
   }

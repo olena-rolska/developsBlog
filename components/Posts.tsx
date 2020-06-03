@@ -56,9 +56,14 @@ const Posts = () => {
     axios.get(`https://simple-blog-api.crew.red/posts`)
       .then(response => {
         setPosts(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       });
   }, []);
+
+  function Hello() {
+    console.log(axios.get(`https://simple-blog-api.crew.red/posts/${match.params.id}`))
+  }
+
 
   return (
     <div>
@@ -78,9 +83,9 @@ const Posts = () => {
               See More
             </Button>
             <BrowserRouter>
-              <Link path="/post/${post.id}" component={Post}>Details</Link>
+              <Link path="/posts/:id" component={Post}>Details</Link>
             </BrowserRouter>
-            
+            <Button onClick={Hello}>Push</Button>
           </Card>
         </div>
       )}
