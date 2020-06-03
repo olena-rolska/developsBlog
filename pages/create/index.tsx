@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import Header from '../header';
+import Footer from '../footer';
 import { makeStyles } from '@material-ui/core/styles';
 
 import axios from 'axios';
@@ -116,6 +118,7 @@ const createPost = () => {
 
   return (
     <div className={classes.main}>
+      <Header />
         <Link href={`/`} as={`/`}>←</Link>
       <div className={classes.paper}>
         <Typography variant="h6" id="modal-title"> Create a post</Typography>
@@ -144,6 +147,7 @@ const createPost = () => {
           ➤
         </Button>
       </div>
+    <Footer />
   </div>
   );
 }

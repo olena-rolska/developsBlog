@@ -21,7 +21,6 @@ const FooterItem = styled.li `
   
 `
 
-
 const Button = styled.a `
   margin: 5px auto;
   font-size: 16px;
