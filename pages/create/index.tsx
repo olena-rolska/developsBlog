@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 
 import axios from 'axios';
@@ -90,34 +91,34 @@ const useStyles = makeStyles(theme => ({
 
 const createPost = () => {
   const classes = useStyles();
-
   const [values, setValues] = React.useState({});
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const backToMain = () => {
-    return (
-      <div>
-        <Link href={`/`} as={`/`}></Link>
-      </div>
-    )
+
+  const postCreated = () => {
+    setTimeout(() => Router.push('/'), 1500)
+    alert("Post created")
   }
 
   const createMessage = () => {
     axios.post('https://simple-blog-api.crew.red/posts',{
     title: values.title,
-    body: values.body
+    body: values.body,
   },
   )
   .then(response =>
     setValues(''),
-    backToMain()
+    postCreated()
   )}
 
   return (
     <div className={classes.main}>
+      <Button variant="contained" color="primary" className={classes.button} onClick={createMessage}>
+        <Link href={`/`} as={`/`}>←</Link>
+        </Button>
       <div className={classes.paper}>
         <Typography variant="h6" id="modal-title"> Create a post</Typography>
         <TextField

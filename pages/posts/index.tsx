@@ -1,15 +1,30 @@
 import React from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import AppRouter from "../../components/Router"
-import Post from "../post/index"
+import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+
+
+const Button = styled.button `
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  padding-right: 30px;
+  background-color: none;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  &: hover {
+    color: #edad6d;
+  }
+`
 
 
 const useStyles = makeStyles(theme => ({
@@ -66,7 +81,7 @@ const Posts = () => {
       <Grid item>
           <Tooltip title="" placement="top-start">
             <Button className={classes.nav} >
-              <Link href={`/create/`} as={`/posts/new`}><p>Create Post</p></Link>
+              <Link href={`/create/`} as={`/posts/new`}><p>CREATE A POST</p></Link>
             </Button>
           </Tooltip>
         </Grid>
@@ -78,7 +93,7 @@ const Posts = () => {
               <Typography className={classes.text}>{post.body}</Typography>
             </CardContent>
             <Button>
-              <Link href={`/posts/${post.id}`} as={`/post/:id`}><p>Details</p></Link>
+              <Link href="/post/[index]" as={`post/${post.id}`} passHref><p>Details</p></Link>
             </Button>
           </Card>
         </div>

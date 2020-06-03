@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import  {useRouter} from 'next/router'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -32,33 +33,33 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const Post = ({match}) => {
+const Post = () => {
   const classes = useStyles();
-  const [post, setPost] = React.useState(null);
-
+  const [post, setPost] = React.useState({title: '', body: ''});
+  const router = useRouter();
+  const index = router.query.index;
 
   React.useEffect(() => {
-    axios.get(`https://simple-blog-api.crew.red/posts/${match.params.id}`)
+    axios.get(`https://simple-blog-api.crew.red/posts/${index}`)
     .then(response => {
       setPost(response.data);
     });
-  }, [match.params.id]);
+  }, [index]);
 
     return(
       <div className={classes.div}>
         <Grid item>
-          <Tooltip title="" placement="top-start">
+          {/* <Tooltip title="" placement="top-start">
             <Button className={classes.nav} component={Link} to={'/'}>Main</Button>
-          </Tooltip>
+          </Tooltip> */}
         </Grid>
         <Card className={classes.card}>
         <CardContent>
           <Typography>{post.title}</Typography>
           <Typography>{post.body}</Typography>
         </CardContent>
-        <Button size="small" component={Link} to={'/'}>back to list</Button>
+        {/* <Button size="small" component={Link} to={'/'}>back to list</Button> */}
       </Card>
-      <div>Hello</div>
     </div>
     ) 
   }
