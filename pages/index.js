@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 const Body = styled.div `
-  background: linear-gradient(left, rgba(255,255,255,1) 0%, rgba(214,242,250,1) 50%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(circle, rgba(108,85,170,1) 0%, rgba(250,250,250,0.37718837535014005) 100%);
   margin: 0;
   padding: 0;
 `

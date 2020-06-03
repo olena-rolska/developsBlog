@@ -2,104 +2,100 @@ import React from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import styled from "styled-components";
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Tooltip from '@material-ui/core/Tooltip';
 
+const BodyPosts = styled.div `
+  text-align: center;
+  margin: 0px auto;
+`
 
 const Button = styled.button `
-  margin-top: 30px;
-  font-weight: bold;
+  margin: 5px auto;
   font-size: 20px;
-  padding-right: 30px;
-  background-color: none;
-  border: none;
+  background: none;
+  border-bottom: 1px solid 'grey';
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  &: hover {
-    color: #edad6d;
+  &:hover {
+    color: #451c80;
+    border-bottom: 2px solid grey;
+    background-color: white;
+  }
+`
+const Container = styled.div `
+  margin: 24px;
+  min-height: calc(96vh - 341px);
+  box-sizing: border-box;
+  padding: 8px;
+`
+
+const Card = styled.div `
+  max-width: 1000px;
+  min-height: 200px;
+  box-shadow: 5px 10px 10px #c7c4cc;
+  padding: 20px;
+  position: relative;
+  margin: 30px auto;
+  background-color: white;
+  &:hover {
+    background-color: #aa99c7;
   }
 `
 
+const Content = styled.p `
+  margin-bottom: 20px;
+  font-family: 'Raleway', sans-serif;
+`
 
-const useStyles = makeStyles(theme => ({
-  nav: {
-    marginTop: '30px',
-    color: '#314f1a',
-    fontWeight: 'bold',
-    fontSize: '20px',
-    paddingRight: '30px',
-  },
-  facts: {
-    margin: '24px',
-    minHeight: 'calc(96vh - 341px)',
-    boxSizing: 'border-box',
-    padding: '8px',
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-around',
-    alignItems: ''
-},
-  card: {
-    width: 345,
-    height: 345,
-    overlay: 'hidden',
-    marginBottom: '30px',
-    backgroundColor: '#f0c09e',
-    '&:hover': {
-      backgroundColor: '#f55531',
-    }
-  },
-  text: {
-    marginBottom: '20px',
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-}));
+const ContentButton = styled.button `
+  margin: 5px 0px auto;
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  &:hover {
+    color: #451c80;
+    font-size: 17px;
+  }
+`
 
 const Posts = () => {
-  const classes = useStyles();
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {
     axios.get(`https://simple-blog-api.crew.red/posts`)
       .then(response => {
         setPosts(response.data);
-        // console.log(response.data);
       });
   }, []);
 
   return (
-    <div>
-      <Grid item>
-          <Tooltip title="" placement="top-start">
-            <Button className={classes.nav} >
-              <Link href={`/create/`} as={`/posts/new`}><p>CREATE A POST</p></Link>
-            </Button>
-          </Tooltip>
-        </Grid>
-      <div className={classes.facts}>{posts.slice(0, 50).map(post =>
-        <div className='facts-block__card'>
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography className={classes.text}>{post.title}</Typography>
-              <Typography className={classes.text}>{post.body}</Typography>
-            </CardContent>
-            <Button>
+    <BodyPosts>
+      <Button>
+        <Link href={`/create/`} as={`/posts/new`}><p>CREATE A POST</p></Link>
+      </Button>
+      <Container>{posts.slice(0, 20).map(post =>
+        <div>
+          <Card>
+            <div>
+              <Content>{post.title}</Content>
+              <Content>{post.body}</Content>
+            </div>
+            <ContentButton>
               <Link href="/post/[index]" as={`post/${post.id}`} passHref><p>Details</p></Link>
-            </Button>
+            </ContentButton>
           </Card>
         </div>
       )}
-      </div>
-    </div>
+      </Container>
+    </BodyPosts>
   );   
 }
 

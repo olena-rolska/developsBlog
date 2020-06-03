@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 
 const Top = styled.header `
-  max-width: 600px;
+  max-width: 1000px;
   text-transform: uppercase;
   text-align: center;
-  margin: 50px auto;
+  margin: 0px auto;
+  padding: 30px;
   font-family: 'Raleway', sans-serif;
-  background: linear-gradient(45deg, #eaeaea 50%, #f6b300 50%);
 `
 
 const Header = () => {
@@ -17,7 +17,12 @@ const Header = () => {
       <Top>  
         <header>
           <h1>Develops Blog</h1>
-          <p>just talkin'</p>
+          <p>
+            Looking for the best way to stay ahead of trends in the web design and web development industry?<br/>
+            You’ve come to the right place. With our web design and web development blog, it’s easy to remain <br/> 
+            up-to-date on the market, 
+            plus learn new tips and tricks for web design and web development.
+          </p>
         </header>
     </Top>
   )

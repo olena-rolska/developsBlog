@@ -116,9 +116,7 @@ const createPost = () => {
 
   return (
     <div className={classes.main}>
-      <Button variant="contained" color="primary" className={classes.button} onClick={createMessage}>
         <Link href={`/`} as={`/`}>←</Link>
-        </Button>
       <div className={classes.paper}>
         <Typography variant="h6" id="modal-title"> Create a post</Typography>
         <TextField
