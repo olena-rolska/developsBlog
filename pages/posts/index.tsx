@@ -67,7 +67,7 @@ const ContentButton = styled.button `
   }
 `
 
-const Posts = () => {
+const Posts: React.FC = () => {
   const [posts, setPosts] = React.useState([]);
 
   React.useEffect(() => {

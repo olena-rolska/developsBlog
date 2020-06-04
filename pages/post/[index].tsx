@@ -51,7 +51,7 @@ const Content = styled.p `
   margin-bottom: 50px;
 `
 
-const Post = () => {
+const Post: React.FC = () => {
   const [post, setPost] = React.useState({title: '', body: ''});
   const router = useRouter();
   const index: string | string[] = router.query.index;

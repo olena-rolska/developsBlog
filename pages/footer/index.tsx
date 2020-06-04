@@ -36,7 +36,7 @@ const Button = styled.a `
   }
 `
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <h2>Follow us</h2>

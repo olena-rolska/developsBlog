@@ -17,7 +17,7 @@ const Body = styled.div `
 const FormContainer = styled.div `
   width: 850px;
   outline: none;
-  margin: 0px auto 100px;
+  margin: 0px auto 80px;
 `
 const Card = styled.div `
   min-height: 300px;
@@ -57,7 +57,7 @@ const Button = styled.button `
 
 
 
-const createPost = () => {
+const createPost: React.FC = () => {
   const [values, setValues] = React.useState({});
 
   const handleChange = name => event => {

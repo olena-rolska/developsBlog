@@ -12,7 +12,7 @@ const Top = styled.header `
   font-family: 'Raleway', sans-serif;
 `
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
       <Top>  
         <header>

@@ -10,7 +10,7 @@ const Body = styled.div `
   padding: 0;
 `
 
-function Blog(props) {
+const Blog = () => {
   return (
     <Body>
       <Header />
