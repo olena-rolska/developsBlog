@@ -84,7 +84,7 @@ const createPost = () => {
   return (
     <Body>
       <Button>
-        <Link href={`/`} as={`/`}>←</Link>
+        <Link href={`/`} as={`/`}><a>←</a></Link>
       </Button>
       <Header />
       <FormContainer>

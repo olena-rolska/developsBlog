@@ -54,7 +54,7 @@ const Content = styled.p `
 const Post = () => {
   const [post, setPost] = React.useState({title: '', body: ''});
   const router = useRouter();
-  const index = router.query.index;
+  const index: string | string[] = router.query.index;
 
   React.useEffect(() => {
     axios.get(`https://simple-blog-api.crew.red/posts/${index}`)
@@ -68,12 +68,12 @@ const Post = () => {
         <Header />
         <PostContainer>
           <Button>
-            <Link href="/">Main</Link>
+            <Link href="/"><a>Main</a></Link>
           </Button>
           <Card>
             <ContentTitle>{post.title}</ContentTitle>
             <Content>{post.body}</Content>
-          <Link href="/">Back to list</Link>
+          <Link href="/"><a>Back to list</a></Link>
         </Card>
       </PostContainer>
       <Footer/>

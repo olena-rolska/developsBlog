@@ -86,11 +86,11 @@ const Posts = () => {
         <div>
           <Card>
             <div>
-              <Content>{post.title}</Content>
-              <Content>{post.body}</Content>
+              <Content key="post.id">{post.title}</Content>
+              <Content key="post.id">{post.body}</Content>
             </div>
             <ContentButton>
-              <Link href="/post/[index]" as={`post/${post.id}`} passHref><p>Details</p></Link>
+              <Link href="/post/[index]" as={`post/${post.id}`} passHref><a>Details</a></Link>
             </ContentButton>
           </Card>
         </div>
