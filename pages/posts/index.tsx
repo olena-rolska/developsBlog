@@ -82,7 +82,7 @@ const Posts = () => {
       <Button>
         <Link href={`/create/`} as={`/posts/new`}><p>CREATE A POST</p></Link>
       </Button>
-      <Container>{posts.slice(0, 20).map(post =>
+      <Container>{posts.slice(0, 40).reverse().map(post =>
         <div>
           <Card>
             <div>
