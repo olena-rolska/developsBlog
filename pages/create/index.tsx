@@ -3,96 +3,61 @@ import Link from 'next/link';
 import Router from 'next/router';
 import Header from '../header';
 import Footer from '../footer';
-import { makeStyles } from '@material-ui/core/styles';
-
+import styled from 'styled-components';
 import axios from 'axios';
 
 
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+const Body = styled.div `
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  background: radial-gradient(circle, rgba(108,85,170,1) 0%, rgba(250,250,250,0.37718837535014005) 100%);
+`
 
-const useStyles = makeStyles(theme => ({
-  main: {
-    width: '100%',
-    height: '100hv',
-    padding: 0,
-  },
-  fab: {
-    position: 'absolute',
-    top: theme.spacing(2),
-    right: theme.spacing(2),
-    textDecoration: "none",
-    color: 'black',
-  },
-  link: {
-    textDecoration: "none",
-    color: 'black',
-  },
-  cards: {
-    width : '80%',
-    display: 'flex',
-  },
-  card: {
-    maxWidth: '30%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: '4%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-  action: {
-      display: 'flex',
-      justifyContent: "space-around",
-  },
-  button: {
-    margin: theme.spacing(5),
-    fontSize: '1em',
-    background: 'white',
-  },
-  button_s: {
-    margin: theme.spacing(1),
-    float: 'right',
-  },
-  rightIcon: {
-    marginLeft: theme.spacing(1),
-  },
-  margin: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-  },
-  paper: {
-    position: 'absolute',
-    top: "35%",
-    left: "35%",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(4),
-    outline: 'none',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width : '100%',
-  },
-  content: {
-    height: 150,
-    textAlign: 'center',
-  },
-  info: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    paddingTop: '12em',
+const FormContainer = styled.div `
+  width: 850px;
+  outline: none;
+  margin: 0px auto 100px;
+`
+const Card = styled.div `
+  min-height: 300px;
+  box-shadow: 5px 10px 10px #c7c4cc;
+  padding: 20px;
+  margin: 30px auto;
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
+`
+
+const TitleField = styled.input `
+  width: 90%;
+  padding: 10px;
+`
+
+const TextArea = styled.textarea `
+  width: 90%;
+  padding: 10px;
+  min-height: 100px;
+`
+
+const Button = styled.button `
+  margin: 5px auto;
+  font-size: 20px;
+  background: none;
+  border-bottom: 1px solid 'grey';
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  &:hover {
+    color: #451c80;
+    border-bottom: 2px solid grey;
+    background-color: white;
   }
-}));
+`
+
 
 
 const createPost = () => {
-  const classes = useStyles();
   const [values, setValues] = React.useState({});
 
   const handleChange = name => event => {
@@ -117,38 +82,39 @@ const createPost = () => {
   )}
 
   return (
-    <div className={classes.main}>
-      <Header />
+    <Body>
+      <Button>
         <Link href={`/`} as={`/`}>←</Link>
-      <div className={classes.paper}>
-        <Typography variant="h6" id="modal-title"> Create a post</Typography>
-        <TextField
-          label="Title"
-          multiline
-          rowsMax="4"
-          value={values.title}
-          onChange={handleChange('title')}
-          className={classes.textField}
-          margin="normal"
-          autoFocus
-          required
-          />
-          <TextField
-          label="Text"
-          multiline
-          rowsMax="4"
-          value={values.body}
-          onChange={handleChange('body')}
-          className={classes.textField}
-          margin="normal"
-          required
-          />
-        <Button variant="contained" color="primary" className={classes.button_s} onClick={createMessage}>
-          ➤
-        </Button>
-      </div>
+      </Button>
+      <Header />
+      <FormContainer>
+        <Card>
+          <h3>CREATE A POST</h3>
+          <p>Title</p>
+          <TitleField
+            label="Title"
+            multiline
+            value={values.title}
+            onChange={handleChange('title')}
+            autoFocus
+            required
+            ></TitleField>
+            <p>Text</p>
+            <TextArea
+            label="Text"
+            multiline
+            value={values.body}
+            onChange={handleChange('body')}
+            required
+            wrap="hard"
+            ></TextArea>
+          <Button onClick={createMessage}>
+            Create ➤
+          </Button>
+        </Card>
+      </FormContainer>
     <Footer />
-  </div>
+  </Body>
   );
 }
 

@@ -10,12 +10,11 @@ const Body = styled.div `
   padding: 0;
 `
 
-
 function Blog(props) {
   return (
     <Body>
       <Header />
-      <Posts match={props}/>
+      <Posts />
       <Footer />
     </Body>
   )

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Header from '../header';
 import Footer from '../footer';
 import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
+
 
 const Body = styled.div `
   text-align: center;
